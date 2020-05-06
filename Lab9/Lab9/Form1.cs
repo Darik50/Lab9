@@ -16,11 +16,11 @@ namespace Lab9
         Pen p;
         SolidBrush fon;
         SolidBrush fig;
-        int rad = 2;
+        int rad = 20;
         Random rand;
         List<IPoint> Arr = new List<IPoint>();
         int num = 1;
-
+        int kof = 5;
         public Form1()
         {
             InitializeComponent();   
@@ -79,8 +79,8 @@ namespace Lab9
                     }
                 }                
             }
-            timer1.Enabled = true;
-            timer1.Interval = 10;
+            timer1.Interval = 50;
+            timer1.Enabled = true;            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -103,6 +103,17 @@ namespace Lab9
                 i._sy = i._y;
                 DrawCircle(i._x, i._y);
             }
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            timer1.Enabled = false;
+            foreach (var i in Arr)
+            {
+                i.ChSpd(trackBar1.Value - kof);
+                kof = trackBar1.Value;
+            }
+            timer1.Enabled = true;
         }
     }
 }

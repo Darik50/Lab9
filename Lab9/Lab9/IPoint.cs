@@ -70,5 +70,60 @@ namespace Lab9
             return true;
             
         }
+        public void ChSpd(int k)
+        {
+            if (_vx >= 0)
+            {
+                if (_vx + k > 0)
+                {
+                    _vx = _vx + k;
+                    _svx = _vx + k;
+                }
+                else
+                {
+                    _vx = 0;
+                    _svx = 0;
+                }
+            }
+            else
+            {
+                if (_vx + k < 0)
+                {
+                    _vx = _vx - k;
+                    _svx = _vx - k;
+                }
+                else
+                {
+                    _vx = 0;
+                    _svx = 0;
+                }
+            }
+            if (_vy >= 0)
+            {
+                if (_vy + k > 0)
+                {
+                    _vy = _vy + k;
+                    _svy = _vy + k;
+                }
+                else
+                {
+                    _vy = 0;
+                    _svy = 0;
+                }
+            }
+            else
+            {
+                if (_vy + k < 0)
+                {
+                    _vy = _vy - k;
+                    _svy = _vy - k;
+                }
+                else
+                {
+                    _vy = 0;
+                    _svy = 0;
+                }
+            }
+        }
     }
 }
